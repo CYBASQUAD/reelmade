@@ -590,6 +590,176 @@
       font-weight: 300;
     }
 
+    /* ── HERO TRUST STRIP ────────────────────────────────────────────────── */
+    .hero-trust {
+      margin-top: 28px;
+      display: flex;
+      gap: 8px 22px;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--baliDarkGray);
+    }
+    .hero-trust span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-trust span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--baliOrangeDark);
+    }
+
+    /* ── INDUSTRY QUICK-PICK ─────────────────────────────────────────────── */
+    .industry-section { background: var(--baliCream); padding-bottom: 0; }
+    .industry-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .industry-card {
+      text-decoration: none;
+      color: var(--baliBlack);
+      background: #fff;
+      border: 1px solid var(--baliGray);
+      border-radius: 1rem;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .industry-card:hover {
+      border-color: var(--baliOrangeDark);
+      transform: translateY(-2px);
+    }
+    .industry-emoji { font-size: 1.6rem; line-height: 1; }
+    .industry-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .industry-hint {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--baliDarkGray);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── SAMPLES PLACEHOLDER ─────────────────────────────────────────────── */
+    .samples-section { background: var(--baliCream); }
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .sample-tile {
+      aspect-ratio: 9 / 16;
+      background: linear-gradient(135deg, var(--baliOrangeLight), #fff);
+      border: 1.5px dashed var(--baliOrangeDark);
+      border-radius: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      gap: 12px;
+    }
+    .sample-tile-icon { font-size: 2rem; }
+    .sample-tile-label {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--baliBlack);
+    }
+    .sample-tile-note {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--baliOrangeDark);
+    }
+
+    /* ── FOUNDER NOTE ────────────────────────────────────────────────────── */
+    .founder-note {
+      margin-top: 36px;
+      padding: 22px 26px;
+      background: var(--baliCream);
+      border-radius: 1.25rem;
+      border-left: 4px solid var(--baliOrangeDark);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .founder-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--baliOrangeDark);
+      color: #fff;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .founder-text {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--baliBlack);
+      line-height: 1.55;
+    }
+    .founder-text strong { font-weight: 600; }
+
+    /* ── FAQ ─────────────────────────────────────────────────────────────── */
+    .faq-section { background: var(--baliOrangeLight); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .faq-item {
+      background: var(--baliCream);
+      border-radius: 1rem;
+      padding: 0;
+      overflow: hidden;
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--baliBlack);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--baliOrangeDark);
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { content: '–'; }
+    .faq-body {
+      padding: 0 24px 22px;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--baliDarkGray);
+      line-height: 1.65;
+    }
+
     /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
     @media (min-width: 960px) {
       .types-grid { grid-template-columns: repeat(3, 1fr); }
@@ -617,10 +787,15 @@
   <section class="hero">
     <p class="hero-eyebrow">Reelmade · AI + Human Promo Studio</p>
     <h1>AI Speed.<br /><em>Human Taste.</em></h1>
-    <p class="hero-sub">Pure AI is generic. Pure agencies are expensive and slow. We use AI for the heavy lifting and a human eye for the parts that take judgment — angle, taste, brand fit. $19 per video, delivered in 24 hours.</p>
+    <p class="hero-sub">Pure AI is generic. Pure agencies are expensive and slow. We use AI for the heavy lifting and a human eye for the parts that take judgment — angle, taste, brand fit. $19 per video, delivered in 24 hours. No photos or footage? We'll generate them.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Order for $19</a>
       <a href="#how-it-works" class="btn-secondary">How it works</a>
+    </div>
+    <div class="hero-trust">
+      <span>Hand-finished in Bali</span>
+      <span>1 free revision</span>
+      <span>Don't like it? Don't pay.</span>
     </div>
     <div class="hero-stat-row">
       <div class="hero-stat">
@@ -635,6 +810,64 @@
         <div class="hero-stat-num">0</div>
         <div class="hero-stat-label">Subscriptions</div>
       </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRY QUICK-PICK -->
+  <section id="industries" class="industry-section">
+    <p class="section-eyebrow">Who it's for</p>
+    <h2 class="section-title">What kind of business<br /><em>do you run?</em></h2>
+    <p class="section-sub">Tap your niche. We'll start a WhatsApp with a script tailored to your kind of business.</p>
+    <div class="industry-row">
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20caf%C3%A9%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">☕</span>
+        <span class="industry-name">Café</span>
+        <span class="industry-hint">Reels for the morning crowd</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20restaurant%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">🍽️</span>
+        <span class="industry-name">Restaurant</span>
+        <span class="industry-hint">Make the menu look gorgeous</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20salon%20%2F%20spa%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">💇</span>
+        <span class="industry-name">Salon &amp; Spa</span>
+        <span class="industry-hint">Before/after, vibes, bookings</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20gym%20%2F%20fitness%20studio%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">🏋️</span>
+        <span class="industry-name">Gym &amp; Fitness</span>
+        <span class="industry-hint">Class drops, transformations</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20retail%20shop%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">🛍️</span>
+        <span class="industry-name">Retail Shop</span>
+        <span class="industry-hint">Stock drops &amp; sale ads</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%27m%20a%20real%20estate%20agent%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20the%20property%3A" class="industry-card">
+        <span class="industry-emoji">🏡</span>
+        <span class="industry-name">Real Estate</span>
+        <span class="industry-hint">Villa &amp; listing walkthroughs</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20service%20business%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">🛠️</span>
+        <span class="industry-name">Services</span>
+        <span class="industry-hint">Coaches, trades, agencies</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20something%20else%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20my%20business%3A" class="industry-card">
+        <span class="industry-emoji">✨</span>
+        <span class="industry-name">Something else</span>
+        <span class="industry-hint">Tell us in WhatsApp</span>
+      </a>
+
     </div>
   </section>
 
@@ -693,6 +926,35 @@
         <span class="type-cta">Order — $19</span>
       </a>
 
+    </div>
+  </section>
+
+  <!-- SAMPLES (placeholder until real videos land) -->
+  <section id="samples" class="samples-section">
+    <p class="section-eyebrow">What it looks like</p>
+    <h2 class="section-title">Real samples.<br /><em>Dropping this week.</em></h2>
+    <p class="section-sub">We're hand-finishing the first batch right now. Want to be the first business in your niche to see one? WhatsApp us — we'll send the relevant sample the moment it ships.</p>
+    <div class="samples-grid">
+      <div class="sample-tile">
+        <span class="sample-tile-icon">☕</span>
+        <span class="sample-tile-label">Café Reel</span>
+        <span class="sample-tile-note">Sample · coming this week</span>
+      </div>
+      <div class="sample-tile">
+        <span class="sample-tile-icon">🍽️</span>
+        <span class="sample-tile-label">Restaurant Reel</span>
+        <span class="sample-tile-note">Sample · coming this week</span>
+      </div>
+      <div class="sample-tile">
+        <span class="sample-tile-icon">🏡</span>
+        <span class="sample-tile-label">Villa Walkthrough</span>
+        <span class="sample-tile-note">Sample · coming this week</span>
+      </div>
+      <div class="sample-tile">
+        <span class="sample-tile-icon">🏋️</span>
+        <span class="sample-tile-label">Gym Offer Ad</span>
+        <span class="sample-tile-note">Sample · coming this week</span>
+      </div>
     </div>
   </section>
 
@@ -759,6 +1021,53 @@
       </div>
 
     </div>
+
+    <div class="founder-note">
+      <div class="founder-avatar">F</div>
+      <p class="founder-text">
+        <strong>Hi, I'm Fouad.</strong> I personally review every video before it ships from Bali. If something feels off, I redo it — even on a $19 order. That's the whole point of the human in the loop.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <p class="section-eyebrow">Common questions</p>
+    <h2 class="section-title">Things people<br /><em>always ask first.</em></h2>
+    <p class="section-sub">If your question isn't here, just WhatsApp it. We answer fast.</p>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>What if I don't like the video?</summary>
+        <div class="faq-body">You get one free revision — tell us what's off and we redo the affected parts. If you still don't like it after the revision, you don't pay. We'd rather refund than ship a video you'd be embarrassed to post.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What do I need to send you?</summary>
+        <div class="faq-body">Three things, all in WhatsApp: (1) what your business does in one or two lines, (2) what you want viewers to do after watching — visit, call, order, follow, (3) any photos, logo, or footage you have. If you have none, that's fine — we'll generate what we need.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can you do it in Indonesian / another language?</summary>
+        <div class="faq-body">Yes. Bahasa Indonesia, English, and most major languages are fine — just tell us which one (and which dialect/accent for voiceover) in your first message.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many revisions are included?</summary>
+        <div class="faq-body">One. We've found that one well-aimed round of changes is enough for the vast majority of orders. If you need more after that, each extra revision is $5.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is the 24-hour turnaround real?</summary>
+        <div class="faq-body">Yes — we count from when we have everything we need (your brief and any assets). If we're slammed on a given day we'll tell you upfront, but the default is 24 hours and we hit it on the large majority of orders.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What formats do I get?</summary>
+        <div class="faq-body">Vertical 9:16 (Reels, TikTok, Shorts, Stories) by default. Need square 1:1 or horizontal 16:9 for a website or YouTube? Mention it in WhatsApp — same price.</div>
+      </details>
+
+    </div>
   </section>
 
   <!-- CTA -->
@@ -768,7 +1077,6 @@
     <p>Send a WhatsApp with your business and what you want to promote. AI builds it, a human polishes it, you get a video in 24 hours. No subscription. No bullshit.</p>
     <div class="cta-actions">
       <a href="https://wa.me/6281330858293?text=Hi+Reelmade%2C+I%27d+like+to+order+a+%2419+promo+video+for+my+business" class="btn-white">WhatsApp Us — $19</a>
-      <a href="mailto:BaliBot@alabali.live" class="btn-outline-white">Send an Email</a>
     </div>
   </section>
 
