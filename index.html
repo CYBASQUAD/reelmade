@@ -593,38 +593,43 @@
     .industry-section { background: var(--baliCream); padding-bottom: 0; }
     .industry-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin-top: 28px;
     }
+    @media (min-width: 520px)  { .industry-row { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px)  { .industry-row { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 1024px) { .industry-row { grid-template-columns: repeat(6, 1fr); } }
     .industry-card {
       text-decoration: none;
       color: var(--baliBlack);
       background: #fff;
       border: 1px solid var(--baliGray);
       border-radius: 1rem;
-      padding: 22px 18px;
+      padding: 20px 16px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
+      gap: 6px;
       transition: border-color 0.2s, transform 0.2s;
     }
     .industry-card:hover {
       border-color: var(--baliOrangeDark);
       transform: translateY(-2px);
     }
-    .industry-emoji { font-size: 1.6rem; line-height: 1; }
+    .industry-emoji { font-size: 1.5rem; line-height: 1; }
     .industry-name {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
+      line-height: 1.2;
     }
     .industry-hint {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 400;
       color: var(--baliDarkGray);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
     }
 
     /* ── SAMPLES PLACEHOLDER ─────────────────────────────────────────────── */
@@ -808,6 +813,24 @@
         <span class="industry-hint">Make the menu look gorgeous</span>
       </a>
 
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20bar%20%2F%20beach%20club%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20the%20vibe%3A" class="industry-card">
+        <span class="industry-emoji">🍹</span>
+        <span class="industry-name">Bar &amp; Club</span>
+        <span class="industry-hint">Sunset crowds, music nights</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20hotel%20%2F%20villa%20stay%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20the%20property%3A" class="industry-card">
+        <span class="industry-emoji">🏨</span>
+        <span class="industry-name">Hotel &amp; Villa</span>
+        <span class="industry-hint">Dreamy room &amp; pool reels</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20yoga%20%2F%20wellness%20studio%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">🧘</span>
+        <span class="industry-name">Yoga &amp; Wellness</span>
+        <span class="industry-hint">Class drops, retreats, vibes</span>
+      </a>
+
       <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20salon%20%2F%20spa%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
         <span class="industry-emoji">💇</span>
         <span class="industry-name">Salon &amp; Spa</span>
@@ -818,6 +841,12 @@
         <span class="industry-emoji">🏋️</span>
         <span class="industry-name">Gym &amp; Fitness</span>
         <span class="industry-hint">Class drops, transformations</span>
+      </a>
+
+      <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20tour%20%2F%20adventure%20business%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
+        <span class="industry-emoji">🌴</span>
+        <span class="industry-name">Tour &amp; Adventure</span>
+        <span class="industry-hint">Surf, dive, day-trips</span>
       </a>
 
       <a href="https://wa.me/6281330858293?text=Hi%20Reelmade%2C%20I%20run%20a%20retail%20shop%20and%20I%27d%20like%20a%20%2419%20promo%20video.%20Here%27s%20what%20we%20do%3A" class="industry-card">
