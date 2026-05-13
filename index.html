@@ -99,9 +99,7 @@
     .hero {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       padding-top: 140px;
       padding-bottom: 80px;
       background:
@@ -109,6 +107,64 @@
         url('https://images.unsplash.com/photo-1574717024453-354056aafa98?w=1800&q=80') center/cover no-repeat;
       position: relative;
       overflow: hidden;
+    }
+
+    .hero-inner {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-video-frame {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 9 / 16;
+      background: var(--baliBlack);
+      padding: 10px;
+      border-radius: 36px;
+      box-shadow:
+        0 40px 80px rgba(28, 22, 18, 0.28),
+        0 0 0 1px rgba(28, 22, 18, 0.06);
+      justify-self: center;
+      position: relative;
+    }
+
+    .hero-video-frame::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92px;
+      height: 6px;
+      background: var(--baliDarkGray);
+      border-radius: 9999px;
+      z-index: 2;
+    }
+
+    .hero-video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 26px;
+      display: block;
+      background: var(--baliBlack);
+    }
+
+    @media (min-width: 880px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+        gap: 64px;
+      }
+      .hero-video-frame { max-width: 360px; justify-self: end; }
     }
 
     .hero-eyebrow {
@@ -181,31 +237,6 @@
     .btn-secondary:hover { gap: 14px; }
 
     .btn-secondary::after { content: '→'; }
-
-    .hero-stat-row {
-      position: absolute;
-      bottom: 48px;
-      right: max(var(--gutter), calc((100vw - var(--content-max)) / 2));
-      display: flex;
-      gap: 48px;
-    }
-
-    .hero-stat { text-align: right; }
-    .hero-stat-num {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--baliBlack);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--baliDarkGray);
-      margin-top: 4px;
-    }
 
     /* ── SECTION WRAPPER ─────────────────────────────────────────────────── */
     section { padding-top: 100px; padding-bottom: 100px; }
@@ -770,7 +801,6 @@
       nav { padding-top: 16px; padding-bottom: 16px; }
       section { padding-top: 72px; padding-bottom: 72px; }
       .hero { padding-top: 120px; padding-bottom: 72px; }
-      .hero-stat-row { display: none; }
       footer { padding-top: 36px; padding-bottom: 36px; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -785,30 +815,23 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-eyebrow">Reelmade · AI + Human Promo Studio</p>
-    <h1>AI Speed.<br /><em>Human Taste.</em></h1>
-    <p class="hero-sub">Pure AI is generic. Pure agencies are expensive and slow. We use AI for the heavy lifting and a human eye for the parts that take judgment — angle, taste, brand fit. $19 per video, delivered in 24 hours. No photos or footage? We'll generate them.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Order for $19</a>
-      <a href="#how-it-works" class="btn-secondary">How it works</a>
-    </div>
-    <div class="hero-trust">
-      <span>Hand-finished in Bali</span>
-      <span>1 free revision</span>
-      <span>Don't like it? Don't pay.</span>
-    </div>
-    <div class="hero-stat-row">
-      <div class="hero-stat">
-        <div class="hero-stat-num">$19</div>
-        <div class="hero-stat-label">Per video</div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Reelmade · AI + Human Promo Studio</p>
+        <h1>AI Speed.<br /><em>Human Taste.</em></h1>
+        <p class="hero-sub">Pure AI is generic. Pure agencies are expensive and slow. We use AI for the heavy lifting and a human eye for the parts that take judgment — angle, taste, brand fit. $19 per video, delivered in 24 hours. No photos or footage? We'll generate them.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Order for $19</a>
+          <a href="#how-it-works" class="btn-secondary">How it works</a>
+        </div>
+        <div class="hero-trust">
+          <span>Hand-finished in Bali</span>
+          <span>1 free revision</span>
+          <span>Don't like it? Don't pay.</span>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">24h</div>
-        <div class="hero-stat-label">Turnaround</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">0</div>
-        <div class="hero-stat-label">Subscriptions</div>
+      <div class="hero-video-frame" aria-label="Sample reel made by Reelmade">
+        <video src="hero-reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
       </div>
     </div>
   </section>
