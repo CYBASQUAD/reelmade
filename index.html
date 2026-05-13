@@ -159,6 +159,42 @@
       background: var(--baliBlack);
     }
 
+    .hero-sound-toggle {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      z-index: 3;
+      width: auto;
+      min-width: 44px;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 9999px;
+      border: none;
+      background: rgba(28, 22, 18, 0.72);
+      backdrop-filter: blur(8px);
+      color: var(--baliCream);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-sound-toggle:hover {
+      background: rgba(28, 22, 18, 0.88);
+      transform: translateY(-1px);
+    }
+    .hero-sound-toggle svg { width: 18px; height: 18px; }
+    .hero-sound-toggle .sound-label-on,
+    .hero-sound-toggle[data-muted="false"] .sound-label-off { display: none; }
+    .hero-sound-toggle[data-muted="false"] .sound-label-on { display: inline; }
+    .hero-sound-toggle .icon-unmuted,
+    .hero-sound-toggle[data-muted="false"] .icon-muted { display: none; }
+    .hero-sound-toggle[data-muted="false"] .icon-unmuted { display: block; }
+
     @media (min-width: 880px) {
       .hero-inner {
         grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
@@ -742,7 +778,13 @@
         </div>
       </div>
       <div class="hero-video-frame" aria-label="Sample reel made by Reelmade">
-        <video src="hero-reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <video id="heroReel" src="hero-reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <button class="hero-sound-toggle" id="heroSoundToggle" type="button" data-muted="true" aria-label="Toggle sound">
+          <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+          <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          <span class="sound-label-off">Tap for sound</span>
+          <span class="sound-label-on">Mute</span>
+        </button>
       </div>
     </div>
   </section>
@@ -982,6 +1024,23 @@
       <a href="https://wa.me/6281330858293?text=Hi+Reelmade%2C+I%27d+like+to+order+a+%2419+promo+video+for+my+business" class="btn-white">Stop the scroll — $19</a>
     </div>
   </section>
+
+  <script>
+    (function () {
+      var video = document.getElementById('heroReel');
+      var btn = document.getElementById('heroSoundToggle');
+      if (!video || !btn) return;
+      btn.addEventListener('click', function () {
+        var nowMuted = !video.muted;
+        video.muted = nowMuted;
+        btn.dataset.muted = nowMuted ? 'true' : 'false';
+        if (!nowMuted) {
+          var p = video.play();
+          if (p && typeof p.catch === 'function') p.catch(function () {});
+        }
+      });
+    })();
+  </script>
 
   <!-- FOOTER -->
   <footer>
