@@ -773,38 +773,50 @@
       line-height: 1.4;
     }
 
-    /* ── SAMPLES PLACEHOLDER ─────────────────────────────────────────────── */
+    /* ── SAMPLES ─────────────────────────────────────────────────────────── */
     .samples-section { background: var(--baliCream); }
     .samples-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
       margin-top: 28px;
     }
+    @media (min-width: 700px)  { .samples-grid { grid-template-columns: repeat(4, 1fr); } }
     .sample-tile {
-      aspect-ratio: 9 / 16;
-      background: linear-gradient(135deg, var(--baliOrangeLight), #fff);
-      border: 1.5px dashed var(--baliOrangeDark);
-      border-radius: 1.25rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
       gap: 12px;
     }
-    .sample-tile-icon { font-size: 2rem; }
+    .sample-tile-video {
+      aspect-ratio: 9 / 16;
+      background: var(--baliBlack);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(28, 22, 18, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .sample-tile:hover .sample-tile-video {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(28, 22, 18, 0.24);
+    }
+    .sample-tile-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: var(--baliBlack);
+    }
     .sample-tile-label {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 1.05rem;
       font-weight: 600;
       color: var(--baliBlack);
+      line-height: 1.25;
     }
     .sample-tile-note {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--baliOrangeDark);
     }
@@ -923,7 +935,8 @@
         </div>
       </div>
       <div class="hero-video-frame" aria-label="Sample reel made by Reelmade">
-        <video id="heroReel" src="hero-reel.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <video id="heroReel" autoplay muted loop playsinline preload="metadata"
+               data-reels="hero-reel.mp4,coach.mp4,trave_agent_sara.mp4,generic_barbershop.mp4"></video>
         <button class="hero-sound-toggle" id="heroSoundToggle" type="button" data-muted="true" aria-label="Toggle sound">
           <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
           <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
@@ -1173,31 +1186,39 @@
     </div>
   </section>
 
-  <!-- SAMPLES (placeholder until real videos land) -->
+  <!-- SAMPLES -->
   <section id="samples" class="samples-section">
     <p class="section-eyebrow">What it looks like</p>
-    <h2 class="section-title">Real samples.<br /><em>Dropping this week.</em></h2>
-    <p class="section-sub">We're hand-finishing the first batch right now. Want to be the first business in your niche to see one? WhatsApp us — we'll send the relevant sample the moment it ships.</p>
+    <h2 class="section-title">Real samples.<br /><em>Hit play.</em></h2>
+    <p class="section-sub">Four reels we made for four very different businesses. Tap any one to watch. Then think about what we could make for yours.</p>
     <div class="samples-grid">
       <div class="sample-tile">
-        <span class="sample-tile-icon">☕</span>
-        <span class="sample-tile-label">Café Reel</span>
-        <span class="sample-tile-note">Sample · coming this week</span>
+        <div class="sample-tile-video">
+          <video src="hero-reel.mp4" muted loop playsinline controls preload="metadata"></video>
+        </div>
+        <span class="sample-tile-label">AI Speed. Human Taste.</span>
+        <span class="sample-tile-note">Reelmade brand reel</span>
       </div>
       <div class="sample-tile">
-        <span class="sample-tile-icon">🍽️</span>
-        <span class="sample-tile-label">Restaurant Reel</span>
-        <span class="sample-tile-note">Sample · coming this week</span>
-      </div>
-      <div class="sample-tile">
-        <span class="sample-tile-icon">🏡</span>
-        <span class="sample-tile-label">Villa Walkthrough</span>
-        <span class="sample-tile-note">Sample · coming this week</span>
-      </div>
-      <div class="sample-tile">
-        <span class="sample-tile-icon">🎥</span>
+        <div class="sample-tile-video">
+          <video src="coach.mp4" muted loop playsinline controls preload="metadata"></video>
+        </div>
         <span class="sample-tile-label">Online Coach</span>
-        <span class="sample-tile-note">Sample · coming this week</span>
+        <span class="sample-tile-note">Personal brand reel</span>
+      </div>
+      <div class="sample-tile">
+        <div class="sample-tile-video">
+          <video src="trave_agent_sara.mp4" muted loop playsinline controls preload="metadata"></video>
+        </div>
+        <span class="sample-tile-label">Travel Agent</span>
+        <span class="sample-tile-note">Service business promo</span>
+      </div>
+      <div class="sample-tile">
+        <div class="sample-tile-video">
+          <video src="generic_barbershop.mp4" muted loop playsinline controls preload="metadata"></video>
+        </div>
+        <span class="sample-tile-label">Barbershop</span>
+        <span class="sample-tile-note">Local business promo</span>
       </div>
     </div>
   </section>
@@ -1303,7 +1324,19 @@
     (function () {
       var video = document.getElementById('heroReel');
       var btn = document.getElementById('heroSoundToggle');
-      if (!video || !btn) return;
+      if (!video) return;
+
+      // Daily rotation: same reel for every visitor on the same UTC day,
+      // advances by one each 24 hours so the hero feels fresh.
+      var reels = (video.dataset.reels || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (reels.length) {
+        var dayIndex = Math.floor(Date.now() / 86400000) % reels.length;
+        video.src = reels[dayIndex];
+        var initial = video.play();
+        if (initial && typeof initial.catch === 'function') initial.catch(function () {});
+      }
+
+      if (!btn) return;
       btn.addEventListener('click', function () {
         var nowMuted = !video.muted;
         video.muted = nowMuted;
