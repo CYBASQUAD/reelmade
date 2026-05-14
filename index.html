@@ -275,7 +275,7 @@
     .btn-secondary::after { content: '→'; }
 
     /* ── SECTION WRAPPER ─────────────────────────────────────────────────── */
-    section { padding-top: 100px; padding-bottom: 100px; }
+    section { padding-top: 80px; padding-bottom: 80px; }
 
     .section-eyebrow {
       font-size: 0.75rem;
@@ -473,6 +473,73 @@
 
     .soul-ai ul li::before { background: var(--baliBlue); }
     .soul-human ul li::before { background: var(--baliOrangeDark); }
+
+    /* ── STATS BAND ──────────────────────────────────────────────────────── */
+    .stats-section {
+      background: var(--baliOrangeLight);
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+    }
+    @media (min-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      border-top: 2px solid var(--baliOrangeDark);
+      padding-top: 16px;
+    }
+    .stat-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      font-weight: 600;
+      color: var(--baliBlack);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .stat-num em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--baliOrangeDark);
+    }
+    .stat-label {
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--baliDarkGray);
+      line-height: 1.4;
+    }
+
+    /* ── INCLUDED LINE IN CTA ───────────────────────────────────────────── */
+    .cta-included {
+      display: flex;
+      justify-content: center;
+      gap: 8px 22px;
+      flex-wrap: wrap;
+      margin: -24px auto 32px;
+      max-width: 560px;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .cta-included span { display: inline-flex; align-items: center; gap: 8px; }
+    .cta-included span::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--baliOrangeLight);
+    }
 
     /* ── CTA BANNER ──────────────────────────────────────────────────────── */
     .cta-section {
@@ -1195,11 +1262,39 @@
     </div>
   </section>
 
+  <!-- STATS BAND -->
+  <section class="stats-section" aria-label="Reelmade by the numbers">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num"><em>$</em>19</div>
+        <div class="stat-label">Flat fee · no subscription</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24<em>h</em></div>
+        <div class="stat-label">From message to inbox</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Free revision per order</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Logins · contracts · upsells</div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section id="contact" class="cta-section">
     <p class="section-eyebrow">$19 · 24-hour delivery · No subscription</p>
     <h2>Your next customer is<br /><em>scrolling right now.</em></h2>
     <p>They'll keep scrolling unless something stops them. A scroll-stopping video for $19, ready by tomorrow. WhatsApp us — we handle the script, the visuals, the voice, the edit. You handle posting it.</p>
+    <div class="cta-included">
+      <span>9:16 default</span>
+      <span>1:1 or 16:9 on request</span>
+      <span>Captions included</span>
+      <span>You own it</span>
+    </div>
     <div class="cta-actions">
       <a href="https://wa.me/6281330858293?text=Hi+Reelmade%2C+I%27d+like+to+order+a+%2419+promo+video+for+my+business" class="btn-white">Stop the scroll — $19</a>
     </div>
