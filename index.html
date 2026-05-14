@@ -1326,12 +1326,11 @@
       var btn = document.getElementById('heroSoundToggle');
       if (!video) return;
 
-      // Daily rotation: same reel for every visitor on the same UTC day,
-      // advances by one each 24 hours so the hero feels fresh.
+      // Random rotation per page load — a different reel every refresh.
       var reels = (video.dataset.reels || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
       if (reels.length) {
-        var dayIndex = Math.floor(Date.now() / 86400000) % reels.length;
-        video.src = reels[dayIndex];
+        var idx = Math.floor(Math.random() * reels.length);
+        video.src = reels[idx];
         var initial = video.play();
         if (initial && typeof initial.catch === 'function') initial.catch(function () {});
       }
